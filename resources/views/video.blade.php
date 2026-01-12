@@ -13,8 +13,8 @@
     <iframe
       width="100%"
       height="100%"
-      src="https://www.youtube.com/embed/g6yStC6T8-Y"
-      title="YouTube video"
+      src="{{ $row->url }}"
+      title="{{ $row->title }}"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen>
@@ -40,31 +40,17 @@
 <section class="video-list">
   <h3>Video Kegiatan Lainnya</h3>
   <div class="video-grid">
-
-  <div class="video-card" onclick="changeVideo('video-pengemasan.mp4')">
-    <iframe src="https://www.youtube.com/embed/J03z16RYw5g" frameborder="0" allowfullscreen></iframe>
+@foreach ($videos as $video)
+@if ($video->id != $row->id)
+  <div class="video-card" onclick="changeVideo('{{ $video->url }}')">
+    <iframe src="{{ $video->url }}" frameborder="0" allowfullscreen></iframe>
     <div class="info">
-    <h4>Pengiriman PST 100 Ekor</h4>
-    <span>Kab Tangerang - Tigaraksa</span>
+    <h4>{{ $video->title }}</h4>
+    <span>{{ $video->description }}</span>
     </div>
   </div>
-
-  <div class="video-card" onclick="changeVideo('video-loading.mp4')">
-    <iframe src="https://www.youtube.com/embed/pGWYe75fEYE" frameborder="0" allowfullscreen></iframe>
-    <div class="info">
-    <h4>Pengiriman PST 300 Ekor</h4>
-    <span>Jelambar - Jakbar</span>
-    </div>
-  </div>
-
-  <div class="video-card" onclick="changeVideo('video-serah-terima.mp4')">
-    <iframe src="https://www.youtube.com/embed/J3S4K82HOWc" frameborder="0" allowfullscreen></iframe>
-    <div class="info">
-    <h4>Pengiriman PST 500 Ekor</h4>
-    <span>Parung - Bogor</span>
-    </div>
-  </div>
-
+@endif
+@endforeach
   </div>
 </section>
 @endsection

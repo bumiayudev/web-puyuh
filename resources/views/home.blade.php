@@ -1,35 +1,17 @@
 @extends("main")
 @section("content")
   <section class="jumbotron">
-    <div class="slide active" style="background-image: url('{{ asset("images/pexels-pixabay-158279.jpg") }}');">
-    <div class="overlay">
-    <div class="content">
-    <h1>Puyuh KRI - Kota Bekasi</h1>
-    <p>Solusi jual beli puyuh dengan kualitas terbaik dan harga terjangkau</p>
-    </div>
-    </div>
-    </div>
-
-
-    <div class="slide" style="background-image: url('{{ asset("images/pexels-pixabay-206768.jpg") }}');">
-    <div class="overlay">
-    <div class="content">
-    <h1>Dari Peternak Lokal</h1>
-    <p>Harga jujur langsung dari sumbernya</p>
-    </div>
-    </div>
-    </div>
-
-
-    <div class="slide" style="background-image: url('{{ asset("images/pexels-pixabay-235725.jpg") }}');">
-    <div class="overlay">
-    <div class="content">
-    <h1>Pengiriman Cepat</h1>
-    <p>Siap kirim ke rumah dan usaha Anda</p>
-    </div>
-    </div>
-    </div>
-    </section>
+    @foreach ($banners as $banner)
+        <div class="slide active" style="background-image: url('{{ asset("storage/" . $banner->image) }}');">
+            <div class="overlay">
+                <div class="content">
+                    <h1>{{ $banner->title }}</h1>
+                    <p>{{ $banner->subtitle }}</p>
+                </div>
+            </div>
+        </div>
+    @endforeach
+ </section>
 
   <!-- PRODUK -->
   <section id="produk" class="produk">
