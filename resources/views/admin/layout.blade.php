@@ -37,13 +37,13 @@
 
       <li class="nav-item">
         <a class="nav-link" href="{{ route('user.index') }}">
-          <i class="fas fa-fw fa-table"></i>
+          <i class="fas fa-fw fa-users"></i>
           <span>Users</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ route('banner.index') }}">
-          <i class="fas fa-fw fa-palette"></i>
+          <i class="fas fa-fw fa-image"></i>
           <span>Banner</span>
         </a>
       </li>
@@ -113,7 +113,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cancel</button>
-                  <a href="#" class="btn btn-primary">Logout</a>
+                  <a href="{{ route('logout') }}" class="btn btn-primary">Logout</a>
                 </div>
               </div>
             </div>

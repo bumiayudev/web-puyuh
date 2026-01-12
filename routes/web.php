@@ -22,9 +22,11 @@ Route::get('/video', function () {
 Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/login', [UserController::class, 'login_submit'])->name('login.submit');
 Route::middleware(['middleware' => 'auth'])->group(function () {
-    Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+    Route::get('/logout', [UserController::class, 'logout'])->name('logout');
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return view('dashboard', ['count_users' => DB::table('users')->count(),
+        'count_videos' => DB::table('videos')->count(),
+        'count_banners' => DB::table('banners')->count(),]);
     })->name('dashboard');
     Route::get('/users', [UserController::class, 'index'])->name('user.index');
     Route::get('/users/create', [UserController::class, 'create'])->name('user.create');
