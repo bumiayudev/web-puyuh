@@ -25,10 +25,10 @@
       <li><a href="{{ route('home') }}">Beranda</a></li>
       <li><a href="#">Produk ▾</a>
           <ul class="dropdown">
-            <li><a href="/">Bibit Puyuh(DOQ)</a></li>
-            <li><a href="/">Puyuh Siap Telur(PST)</a></li>
-            <li><a href="/">Kandang</a></li>
-            <li><a href="/">Paket Pemula</a></li>
+            <li><a href="{{ route('product-doq') }}">Bibit Puyuh(DOQ)</a></li>
+            <li><a href="{{ route('product-pst') }}">Puyuh Siap Telur(PST)</a></li>
+            <li><a href="{{ route('cage') }}">Kandang</a></li>
+            <li><a href="{{ route('starter-pack') }}">Paket Pemula</a></li>
           </ul>
         </li>
         <li><a href="{{ route('gallery') }}">Galeri</a></li>

@@ -19,6 +19,18 @@ Route::get('/video', function () {
     $videos = DB::table('videos')->orderBy('created_at', 'desc')->get();
     return view('video', compact('row', 'videos'));
 })->name('video');
+Route::get('/product-doq', function () {
+    return view('product-doq');
+})->name('product-doq');
+Route::get('/product-pst', function () {
+    return view('product-pst');
+})->name('product-pst');
+Route::get('/cage', function () {
+    return view('cage');
+})->name('cage');
+Route::get('/starter-pack', function () {
+    return view('starter-pack');
+})->name('starter-pack');
 Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/login', [UserController::class, 'login_submit'])->name('login.submit');
 Route::middleware(['middleware' => 'auth'])->group(function () {
